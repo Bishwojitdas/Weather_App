@@ -89,7 +89,6 @@ class _MyHomePageState extends State<MyHomePage> {
                         scrollDirection: Axis.horizontal,
                         itemBuilder: (context, index) {
                         Hour? hour=weatherModel?.forecast?.forecastday?[0].hour?[index];
-
                         return HourlyWeatherListItem(hour: hour,);
                     },),
                   ),
@@ -97,12 +96,12 @@ class _MyHomePageState extends State<MyHomePage> {
                   const Text("Next 7 days weather",
                     style: TextStyle(fontSize: 22, color: Colors.white),
                   ),
-                  cded(
+                  const SizedBox(height: 10,),
+                  Expanded(
                     child: ListView.builder(
                       itemBuilder: (context, index) {
                         Forecastday? forecastday=
                         weatherModel?.forecast?.forecastday?[index];
-                        print("this length is= ${weatherModel?.forecast?.forecastday?.length}");
                         return FutureForecastListItem(
                           forecastday: forecastday,);
                     },
@@ -110,7 +109,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
                     ),
                   ),
-                  const SizedBox(height: 10,)
                 ],
               ));
         }
